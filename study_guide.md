@@ -405,16 +405,16 @@ __HTTP and the Request/Response Cycle__
         - For GET requests, the body is typically empty.
 
 60. Describe the basic structure of an HTTP response message.
-    __Status line__:
+    - __Status line__:
         - The first line in the response that includes:
             - The _HTTP version__ (HTTP/1.1)
             - A _status code_ (e.g., 200, 404), which is a three-digit number indicating the result of the request.
             - A _reason phrase_ (e.g., OK, Not Found), which is a short description of the status code.
-    __Headers__:
+    - __Headers__:
         - Similar to request headers, these are name-value pairs that provide more information about the response which commonly include:
             - Content-Type (what kind of data is in the body)
             - Content-Length (The size of the body)
-    __Body__ (optional but usually present):
+    - __Body__ (optional but usually present):
         - Contains the actual resource or data requested by the client such as the HTML for a webpage or the data for an image.
 
 61. What is the purpose of the _Host header_ in an HTTP request?
