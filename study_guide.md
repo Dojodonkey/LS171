@@ -388,7 +388,7 @@ __HTTP and the Request/Response Cycle__
     - A message sent by a __server__ back to the __client_ as a response to a request.
     - It contains the _resource_ the client asked for and a _status message_ indicating the outcome of the request.
 
-Describe the basic structure of an HTTP request message.
+59. Describe the basic structure of an HTTP request message.
     - __Request line__:
         - The first line of the request specifying:
             - The _HTTP method_ (e.g., GET, POST) which is the action the client wants to perform.
@@ -404,7 +404,7 @@ Describe the basic structure of an HTTP request message.
         - For example, when submitting a form with a POST request.
         - For GET requests, the body is typically empty.
 
-Describe the basic structure of an HTTP response message.
+60. Describe the basic structure of an HTTP response message.
     __Status line__:
         - The first line in the response that includes:
             - The _HTTP version__ (HTTP/1.1)
@@ -417,11 +417,11 @@ Describe the basic structure of an HTTP response message.
     __Body__ (optional but usually present):
         - Contains the actual resource or data requested by the client such as the HTML for a webpage or the data for an image.
 
-What is the purpose of the _Host header_ in an HTTP request?
+61. What is the purpose of the _Host header_ in an HTTP request?
     - In an HTTP Request, the Host header is used to specify the _domain name_ of the server the client is trying to communicate with.
     - Important because a single server with on IP address can host _multiple websites_.
 
-What is the purpose of the _Content-Type header_? Give two examples of values for it.
+62. What is the purpose of the _Content-Type header_? Give two examples of values for it.
     - Indicates the media type (or format) of the resource being sent in the message body.
     - Used in both requests and responses and tells recipient how to interpret the data in the body.
     - 2 examples:
@@ -430,7 +430,7 @@ What is the purpose of the _Content-Type header_? Give two examples of values fo
         2. `application/json`
             - indicates body contains data formatted as JSON (common in web APIs)
 
-What type of information might be found in HTTP request headers? Give three examples.
+63. What type of information might be found in HTTP request headers? Give three examples.
     - HTTP request headers provide additional information about the client and the resource to be fetched.
         - This metadata helps the server understand the client's capabilities and the context of the request.
     - 3 examples:
@@ -440,7 +440,7 @@ What type of information might be found in HTTP request headers? Give three exam
             - `en-US, en;q=0.8`
         3. `Connection`: The type of communication the client would prefer, such as `keep-alive`, which suggests keeping the connection open for multiple requests.
 
-What type of information might be found in HTTP response headers? Give three examples.
+64. What type of information might be found in HTTP response headers? Give three examples.
     - HTTP response headers provide additional meta-information about the response and the resource being sent back from the server.
         - This helps the client understand how to process the response.
     - 3 examples:
@@ -451,24 +451,24 @@ What type of information might be found in HTTP response headers? Give three exa
         - `Location`: Used in redirection responses (301/302 status code) to tell the client the new URL for the resource.
             - `Location: https://www.github.com/login`
 
-In an HTTP request, where is the HTTP method found?
+65. In an HTTP request, where is the HTTP method found?
     - The HTTP method is found in the __request line__, the first lone of an _HTTP request_.
         - `GET /index.html HTTP/1.1`
 
-Name at least four common HTTP methods (verbs).
+66. Name at least four common HTTP methods (verbs).
     - `GET`: To request and retrieve a resource from a server.
     - `POST`: Used to submit data toa. server to create/update a resource.
     - `PUT`: To update an existing resource completely.
     - `DELETE`: Used to remove a resource.
 
-What is the difference between the _request line_ and the _status line_?
+67. What is the difference between the _request line_ and the _status line_?
     - The __request line__ is the first line of an __HTTP request__ (sent from client to server) whereas the __status line__ is the first line of an __HTTP response__ (sent from server to client).
     - The __request line__ asks the server to perform an action.
         - It contains the HTTP method, the path to the resource, and the HTTP version (GET /articles HTTP 1.1).
     - The __status line__ reports the result of the request.
         - It contains the HTTP version, a numerical status code and a text-based reason phrase (`HTTP/1.1 200 OK`).
 
-Describe the full HTTP request/response cycle and all the layers and protocols used starting from when a user enters a URL into a browser.
+68. Describe the full HTTP request/response cycle and all the layers and protocols used starting from when a user enters a URL into a browser.
 Include DNS resolution.
 Include TCP connection.
 Include sending and receiving HTTP messages.
@@ -512,38 +512,38 @@ Include sending and receiving HTTP messages.
             - For each resource, a new HTTP request/response cycle is initiated, often reusuing the exising TCP connection for efficiency (called a "persistant connection" or HTTP keep-alive)
     - Final Display: Once all the resources are fetched and processed, the browser assembles a complete viewable webpage.
 
-What is a status code in HTTP? Where does it appear in the response?
+69. What is a status code in HTTP? Where does it appear in the response?
     - An __HTTP status code__ is a three-digit number that a server sends back in a response to signify the status of a client's request.
         - It appears in the very first line of an HTTP response, called __the status line__, alongside the __HTTP version__ and __descriptive reason phrase__.
             - `HTTP/1.1 200 OK`
 
-What does a `2xx` status code category represent? Give two specific examples and their meanings.
+70. What does a `2xx` status code category represent? Give two specific examples and their meanings.
     - Indicates client's request was successfully received, understood and accepted, signifying success.
     - `200 OK`: Most common success code.
         - The request was handled successfully and the requested resource is being sent back in the _response body_.
     - `201 Created`: Appears when working with APIs.
         - Indicates that the request was successful and resulted in the creation of a new resource on the server.
 
-What does a `3xx` status code category represent? Give two specific examples and their meanings.
+71. What does a `3xx` status code category represent? Give two specific examples and their meanings.
     - Indicates redirection.
     - The server is telling the client that it needs to take additional action, usually by making a new request to a different URL, to complete the request.
     - `301 Moved Permanently`: The requested resource has been permanently moved to a new URL, provided in the `Location` header of the response.
     - `302 Found`: The requested resource has been temporarily moved to a different URL.
 
-What does a `4xx` status code category represent? Give two specific examples and their meanings.
+72. What does a `4xx` status code category represent? Give two specific examples and their meanings.
     - Indicates _client-side error_ meaning the server thinks the client made a mistake, such as requesting a resource that does not exist or a malformed request.
     - `404 Not Found`: Most common client-side error.
         - The server could not find the resource that the client requested.
     - `400 Bad Request`: The server could not understand the request due to invalid syntax.
 
-What does a `5xx` status code category represent? Give two specific examples and their meanings.
+73. What does a `5xx` status code category represent? Give two specific examples and their meanings.
     - Indicates _server-side error_.
     - The request was valid, but the server encountered and unexpected condition that prevented it from fulfilling the request. (Outside of the client's control.)
     - `500 Internal Server Error`: A generic "catch-all" error.
         - The server encountered an error and couldn't be more specific about the problem.
     - `503 Service Unavailable`: The server is not ready to handle the request, often because its down for maintenance or overloaded.
 
-Why can statelessness be a problem for web applications that need to remember users or their actions?
+74. Why can statelessness be a problem for web applications that need to remember users or their actions?
     - Modern web applications are expected to provide a continuous, stateful experience, but the protocol they are built on, HTTP, is inherently _stateless_.
         - Each request/response cycle is independent of the previous one.
             - In the context of HTTP, this means the server does not hold on to any data about the client between requests.
@@ -552,132 +552,132 @@ Why can statelessness be a problem for web applications that need to remember us
                 - In a stateless world, the server would have no memory of the first request and the shopping cart would be empty after the second request.
             2. User Logins: You login to a website with a username and password (one request). When you click to view your profile (second request), the server would have forgotten that you just logged in and ask you for your credentials again.
 
-Explain how cookies are used to simulate state in HTTP:
+75. Explain how cookies are used to simulate state in HTTP:
     - Cookies are the primary client-side mechanism for simulating state.
         - Since HTTP is stateless, a server normally has no way to link multiple requests from the same client.
         - Cookies solve this by acting as a small piece of memory that the browser can hold on to.
     - The server gives the browser a unique piece of data (the cookie) and the browser sends that piece of data back to the server with every subsequent request.
         - This allows the server to identify the client across multiple independent requests, creating the illusion of a continuous, stateful session.
 
-How does the server send a cookie to the client?
+76. How does the server send a cookie to the client?
     - Using the `Set-Cookie` header with a _session id_ in an HTTP response.
     - The browser stores the value of the cookie and associates it with the server's domain.
 
-How does the client send it back on future requests?
+77. How does the client send it back on future requests?
     - After the cookie has been set, the browser automatically includes it in the `Cookie` header of every subsequent HTTP request to that server.
         - The server reads this header to identify the client.
 
-What is a __session__ in the context of web applications?
+78. What is a __session__ in the context of web applications?
     - A __session__ refers to the data that the _server_ stores to keep track of the specific user's state.
     - While the _cookie_ is stored on the _client-side_ (the browser), the actual _session data_ (user ID, shopping cart contents, login status, preferences, etc..) is stored on the server.
     - The server uses a unique _session id_ to link a client to their session data on the server.
 
-How do cookies and server-side sessions work together to simulate state?
+79. How do cookies and server-side sessions work together to simulate state?
     - The _cookie_, stored on the client simply holds the _session id_ while the _session_ on the server holds the actual _session data_.
 
-Besides cookies, name one other mechanism for maintaining state or user data in a browser.
+80. Besides cookies, name one other mechanism for maintaining state or user data in a browser.
     - AJAX (Asynchronous JavaScript and XML) allows a webpage to send requests and receive responses from a server in the background, __without reloading the entire page__.
         - This enables the _client_ to fetch or update small pieces of data, making the application feel more dynamic and responsive, a key part of simulating a stateful experience.
 
-Explain the difference between GET and POST requests in terms of:
+81. Explain the difference between GET and POST requests in terms of:
     - `GET` is used to request and retrieve data from a server.
         - Meant for _read-only operations_.
     - `POST` is used to submit data to a server to create or update a resource.
 
-Where data is typically placed:
+82. Where data is typically placed:
     - In a `GET` request, data is appended to the URL as a _qeuery string_ (`?search=dogs`).
     - In a `POST` request, data is sent in the _body_ of the HTTP request, which is not visible in the URL.
 
-Whether they are meant to be safe/idempotent:
+83. Whether they are meant to be safe/idempotent:
     - `GET` requests should be "safe", meaning they should have no side effects or change the state of the server.
         - They should also be _idempotent_, meaning making the same request multiple times has the same effect as making it once.
     - `POST` requests are neither safe nor idempotent, so making the same `POST` request multiple times likely results in the creation of multiple new resources.
 
-Give an example of an operation that should use GET:
+84. Give an example of an operation that should use GET:
     - Requesting the results for a search qeuery.
         - The search itself doesn't change any data on the server; it only retrieves it.
 
-Give an example of an operation that should use POST:
+85. Give an example of an operation that should use POST:
     - Submitting a form to create a new user account or logging into a website.
         - These actions change the server's state or involve sending sensitive information like a password.
 
-Why is it a bad idea to use GET for actions that change server state (like deleting a resource)?
+86. Why is it a bad idea to use GET for actions that change server state (like deleting a resource)?
     1. Safety: It violates the principle that `GET` requests should be safe and not cause side effects.
     2. Security: Sensitive data would be exposed directly in the URL, which is logged in the browser history, server logs, and network caches.
 
-Conceptually, what does AJAX allow you to do that plain form submissions do not?
+87. Conceptually, what does AJAX allow you to do that plain form submissions do not?
     - AJAX allows a web browser to send an HTTP request to a server and update just a ​​part​​ of a webpage with the response, all without requiring a full page reload.
     - Plain form submissions, by contrast, always cause the browser to navigate to a new page or reload the current one entirely.
 
-What does it mean that AJAX requests are “asynchronous”?
+88. What does it mean that AJAX requests are “asynchronous”?
     - "Asynchronous" means that when an AJAX request is sent, the browser doesn't stop or freeze while waiting for the server to respond.
         - The request happens in the background. The user can continue to interact with the rest of the page, and when the response eventually arrives, a "callback" function is triggered to process the response and update the page.
 
-Give an example of a user interface feature that would likely use AJAX.
+89. Give an example of a user interface feature that would likely use AJAX.
     - A search bar with auto-complete suggestions. As you type each letter, an AJAX request is sent to the server with your partial query. The server responds with a list of suggestions, which are then used to update a dropdown list below the search bar, all without reloading the page.
 
-How does using AJAX change the user experience compared to full page reloads?
+90. How does using AJAX change the user experience compared to full page reloads?
     - AJAX makes web applications feel much faster, smoother, and more responsive, similar to a desktop application. Since only small portions of the page are updated, the user doesn't experience the jarring "flash" of a full page reload for every small interaction. This creates a more seamless and continuous user experience.
 
 Security
 
-What are some security risks associated with plain HTTP (without TLS)?
+91. What are some security risks associated with plain HTTP (without TLS)?
     1. __Eavesdropping (Packet Sniffing)__: Attackers on the same network can read the data being sent back and forth, including sensitive information like passwords or session IDs seen in plain text.
     2. __Man-In-The-Middle (MitM) Attacks__: An attacker can intercept and alter communication between the client and server whithout either party knowing.
 
-How does HTTPS protect against eavesdropping and MitM attacks?
+92. How does HTTPS protect against eavesdropping and MitM attacks?
     - HTTPS (Secure HTTP) encrypts every request and response before it is sent over the network using the TLS protocol (Transport Layer Security).
     - TLS ensures:
         1. _Authentication_: verifying the identity of the server through certificates and CAs.
         2. _Encryption_: Even if an attacker eavedrops, the information captured is encrypted and useless to them.
         3. _Integrity_: Using a Message Authentication Code (MAC), to detect data tampering.
 
-What is Cross-Site Scripting (XSS)?
+93. What is Cross-Site Scripting (XSS)?
     - Cross-Site Scripting (XSS) is a type of attack that happens when an application allows users to input code that is then displayed directly on the site without being properly handled.
     - This malicious code then executes in the browsers of other users who view the page.
 
-Describe a simple example of how an XSS attack might be carried out on a web application.
+94. Describe a simple example of how an XSS attack might be carried out on a web application.
     - Imagine a public comment section on a website.
     - An attacker submits a malicious scipt and the website stores that comment in its database.
     - Later, users visit the page to read the comments, the browser renders attacker's comment running the malicious code in the users browser.
 
-What is one way to prevent or reduce the risk of XSS?
+95. What is one way to prevent or reduce the risk of XSS?
     - One of the most effective ways is to ​escape​ all user-provided data before displaying it on a page.
     - _Escaping_ converts special HTML characters (like < and >) into their HTML entity equivalents (< and >). This causes the browser to display the characters as plain text instead of interpreting them as code, neutralizing the malicious script.
 
-What is session hijacking?
+96. What is session hijacking?
     - _Session hijacking_ is an attack where an attacker gets a hold of a user's valid session ID. With this ID, the attacker can impersonate the user and gain access to their account and data without needing their username or password.
 
-How can an attacker hijack a user’s session?
+97. How can an attacker hijack a user’s session?
     - By stealing the _session ID_ via packet sniffing on an unencrypted (HTTP) network to read the session cookie as it is transmitted between client and server.
 
-Name two ways to protect cookies that hold session IDs.
+98. Name two ways to protect cookies that hold session IDs.
     1. Use HTTPS across the entire application:
         - This encrypts all traffic including cookie headers, making eavesdropping impossible.
     2. Set an expiration time on sessions:
         - Sessions that dont expire give hackers infinite amounts of time to use a stolen ID.
         - Expiring sessions after a period of inactivity (e.g., 30 min) narrows the window of opportunity for an attacker.
 
-Why is it important that session cookies are not accessible to client-side JavaScript in many cases?
+99. Why is it important that session cookies are not accessible to client-side JavaScript in many cases?
     - If an attacker successfully injected malicious script onto a page (XSS), that script could potentially accrss the browser's cookies and steal the _session id_.
     - By making the session cookie inaccessible to JavaScript (using the `HTTPOnly` flag), this is prevented.
         - Even if the XSS vulnerability exists, the attacker's script won't be able to read and steal the session cookie.
 
-What is the purpose of the `Secure` flag on cookies?
+100. What is the purpose of the `Secure` flag on cookies?
     - The `Secure` flag instructs the browser to only send the cookie back to the server over an encrypted HTTPS connection. It prevents the cookie from being transmitted over an insecure HTTP connection, which would make it vulnerable to eavesdropping.
 
-What is the purpose of the `HttpOnly` flag on cookies?
+101. What is the purpose of the `HttpOnly` flag on cookies?
     - The `HttpOnly` flag prevents a cookie from being accessed by client-side JavaScript. This is a crucial security measure to mitigate Cross-Site Scripting (XSS) attacks. If an attacker manages to inject malicious JavaScript onto a page, this flag prevents that script from stealing the user's session cookie.
 
-What is TLS and how does it relate to HTTPS?
+102. What is TLS and how does it relate to HTTPS?
     - TLS (Transport Layer Security) is a cryptographic protocol designed to provide secure communication over a computer network. HTTPS (HTTP Secure) is not a separate protocol; it is simply the standard HTTP protocol layered on top of TLS. When you use HTTPS, your HTTP requests and responses are encrypted by TLS before being sent across the network.
 
-What three main security services does TLS provide?
+103. What three main security services does TLS provide?
     1.  ​Encryption​: A process of encrypting a message so that it can only be read by those with an authorized means of decrypting it.
     2.  ​Authentication​: A process to verify the identity of a particular party in the message exchange.
     3.  ​Integrity​: A process to detect whether a message has been interfered with or faked during transit.
 
-How does TLS provide confidentiality?
+104. How does TLS provide confidentiality?
     - TLS provides confidentiality through ​_encryption_​.
     - During the initial "TLS Handshake," the client and server securely agree upon a shared secret key. All subsequent communication is then encrypted using this key, making the data unreadable to anyone who might intercept it.
         - _​Asymmetric encryption_​ (public/private keys) is used at the beginning, during the TLS Handshake.
@@ -685,20 +685,22 @@ How does TLS provide confidentiality?
             - The public key is used to encrypt the message, the private key to encrypt the message.
         - ​_Symmetric encryption​_ (a single shared secret key) is used for encrypting all the actual application data after the handshake is complete.
             - It is much faster and more efficient than asymmetric encryption, making it ideal for encrypting the bulk of the communication
-How does TLS provide integrity?
+105. How does TLS provide integrity?
     - TLS provides integrity through the use of a ​Message Authentication Code (MAC)​.
     - A MAC is a short piece of information generated from the message content and a secret key. It's sent along with the message.
         - The receiver can regenerate the MAC using the same process and verify that it matches the one sent by the sender.
     - If they don't match, it means the message was altered in transit.
 
-What is a digital certificate in the context of TLS?
+106. What is a digital certificate in the context of TLS?
     - A digital certificate is an electronic document that proves the ownership of a public key. It binds together a public key with an identity (like a domain name, e.g., www.launchschool.com) and is signed by a trusted Certificate Authority.
     - It's the primary way a client can be sure that the public key it receives actually belongs to the server it's trying to connect to.
-What role do Certificate Authorities (CAs) play in TLS?
+
+107. What role do Certificate Authorities (CAs) play in TLS?
     - Certificate Authorities (CAs) are trusted entities that verify the identity of organizations or individuals and issue digital certificates for them.
     - Your browser and operating system come with a pre-installed list of trusted "Root CAs." When your browser receives a certificate from a server, it checks if it was signed by a CA that it trusts, creating a "chain of trust."
     -  CAs are the foundation of the authentication process in TLS.
-Why is simply encrypting data not enough without authentication?
+
+108. Why is simply encrypting data not enough without authentication?
     - Encrypting data without authentication is dangerous because you might be having a perfectly secure, encrypted conversation with an attacker.
     - Without authentication, you have no way to verify ​who​ is on the other end of the connection.
         - An attacker could perform a man-in-the-middle (MitM) attack, impersonating the real server.
