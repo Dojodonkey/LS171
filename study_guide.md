@@ -473,44 +473,44 @@ Include DNS resolution.
 Include TCP connection.
 Include sending and receiving HTTP messages.
 
-1. Application Layer: Initiates the Request.
-    - When a URL is typed into the search bar, the browser, as a client application, needs to fetch the _resource_ at that URL.
-    - _DNS Resolution_ is the act of looking up the IP address to connect with a domain name.
-        - A _DNS lookup_ performs:
-            1. The browser checks its own cache, then the OS's cache for recent lookups.
-            2. If the IP address is not found in a cache, the browser sends a request to a _DNS resolver_.
-                - The resolver finds the correct IP address and returns it to the browser which then stores it in the cache.
-2. Transport Layer: Establishing a Connection
-    - Before the browser can send its request for the webpage, it must establish a reliable, two-way communication channel with the server using TCP.
-        - The TCP Three-Way Handshake:
-            1. `SYN`: browser send the synchronize flag set to the server's IP address, requesting to open a connection.
-            2. `SYN/ACK`: server receives the SYN and sends back a segment with both SYN and ACK (acknowledge) flags.
-                - This acknowedges the client's request and asks to establish a connection in the other direction.
-            3. `ACK`: browser receives the SYN/ACK and sends back a final ACK segment back to the server, establishing a stable connection.
-3. Application Layer: Sending the HTTP Request
-    - Now that the connection is open, the browser sends an HTTP request (a plain-text message formatted according to HTTP protocol).
-        - Request Line: `GET /books HTTP/1.1`
-        - Headers: `Host: launchschool.com, User-Agent: Mozilla`, etc...
-        - Body: (empty for `GET` requests)
-4. Journey Across the Network (All Layers):
-    1. Transport Layer (TCP): Request is broken into smaller chunks called _segments_. Each segment gets a header with source/destination port numbers and sequence numbers.
-    2. Network Layer (IP): Each segment is encapsulated into an IP _packet_ containing source and destination IP addresses in the header.
-    3. Link Layer (Ethernet): Each packet is placed into a _frame_ which includes MAC addresses for the next hop in the local network (like your home router).
-        - _Frames_ are converted into electric signals, radio waves or light pulses and sent over a physical medium (e.g., Ethernet cables, Fiberoptic, wifi, etc...)
-            - This data travels across the internet, from router to router until it reaches the destination server.
-5. Server-Side: Processing and Responding
-    - Receiving the request: The server receives the data and passes it up its own network stack, reassembling the original HTTP request message.
-    - Server Processing (Application Layer): The web server software reads the HTTP request (e.g., Nginx, Apache..).
-        - It sees the `GET` request for the resource at `/books` and processes it, which might involve retreiving an HTML file from its disk or running a program to generate the content.
-    - HTTP Response (Application Layer): The server constructs an __HTTP response__ including a _status line_ (`HTTP/1.1 200 OK`), _headers_ (`Content-Type: text/html, Content-Lenght: [size of body],..`), and a _body_ (The actual HTML contents)
-6. The Journey Back (All Layers)
-    - The HTTP response travels back to the client, going down the server's network stack an up the client's.
-7. Application Layer: Rendering the Page
-    - Browser receives the HTTP response and parse it. `200 OK` status code confirms successful retrieval.
-        - Rendering: The browser's rendering engine starts processing the HTML in the _response body_.
-        - Fetching Additional Resources: As the browser parses the HTML, it will discover other resources needed to display the page (e.g., CSS, JavaScript files, and images).
-            - For each resource, a new HTTP request/response cycle is initiated, often reusuing the exising TCP connection for efficiency (called a "persistant connection" or HTTP keep-alive)
-    - Final Display: Once all the resources are fetched and processed, the browser assembles a complete viewable webpage.
+    1. Application Layer: Initiates the Request.
+        - When a URL is typed into the search bar, the browser, as a client application, needs to fetch the _resource_ at that URL.
+        - _DNS Resolution_ is the act of looking up the IP address to connect with a domain name.
+            - A _DNS lookup_ performs:
+                1. The browser checks its own cache, then the OS's cache for recent lookups.
+                2. If the IP address is not found in a cache, the browser sends a request to a _DNS resolver_.
+                    - The resolver finds the correct IP address and returns it to the browser which then stores it in the cache.
+    2. Transport Layer: Establishing a Connection
+        - Before the browser can send its request for the webpage, it must establish a reliable, two-way communication channel with the server using TCP.
+            - The TCP Three-Way Handshake:
+                1. `SYN`: browser send the synchronize flag set to the server's IP address, requesting to open a connection.
+                2. `SYN/ACK`: server receives the SYN and sends back a segment with both SYN and ACK (acknowledge) flags.
+                    - This acknowedges the client's request and asks to establish a connection in the other direction.
+                3. `ACK`: browser receives the SYN/ACK and sends back a final ACK segment back to the server, establishing a stable connection.
+    3. Application Layer: Sending the HTTP Request
+        - Now that the connection is open, the browser sends an HTTP request (a plain-text message formatted according to HTTP protocol).
+            - Request Line: `GET /books HTTP/1.1`
+            - Headers: `Host: launchschool.com, User-Agent: Mozilla`, etc...
+            - Body: (empty for `GET` requests)
+    4. Journey Across the Network (All Layers):
+        1. Transport Layer (TCP): Request is broken into smaller chunks called _segments_. Each segment gets a header with source/destination port numbers and sequence numbers.
+        2. Network Layer (IP): Each segment is encapsulated into an IP _packet_ containing source and destination IP addresses in the header.
+        3. Link Layer (Ethernet): Each packet is placed into a _frame_ which includes MAC addresses for the next hop in the local network (like your home router).
+            - _Frames_ are converted into electric signals, radio waves or light pulses and sent over a physical medium (e.g., Ethernet cables, Fiberoptic, wifi, etc...)
+                - This data travels across the internet, from router to router until it reaches the destination server.
+    5. Server-Side: Processing and Responding
+        - Receiving the request: The server receives the data and passes it up its own network stack, reassembling the original HTTP request message.
+        - Server Processing (Application Layer): The web server software reads the HTTP request (e.g., Nginx, Apache..).
+            - It sees the `GET` request for the resource at `/books` and processes it, which might involve retreiving an HTML file from its disk or running a program to generate the content.
+        - HTTP Response (Application Layer): The server constructs an __HTTP response__ including a _status line_ (`HTTP/1.1 200 OK`), _headers_ (`Content-Type: text/html, Content-Lenght: [size of body],..`), and a _body_ (The actual HTML contents)
+    6. The Journey Back (All Layers)
+        - The HTTP response travels back to the client, going down the server's network stack an up the client's.
+    7. Application Layer: Rendering the Page
+        - Browser receives the HTTP response and parse it. `200 OK` status code confirms successful retrieval.
+            - Rendering: The browser's rendering engine starts processing the HTML in the _response body_.
+            - Fetching Additional Resources: As the browser parses the HTML, it will discover other resources needed to display the page (e.g., CSS, JavaScript files, and images).
+                - For each resource, a new HTTP request/response cycle is initiated, often reusuing the exising TCP connection for efficiency (called a "persistant connection" or HTTP keep-alive)
+        - Final Display: Once all the resources are fetched and processed, the browser assembles a complete viewable webpage.
 
 69. What is a status code in HTTP? Where does it appear in the response?
     - An __HTTP status code__ is a three-digit number that a server sends back in a response to signify the status of a client's request.
