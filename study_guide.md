@@ -673,9 +673,9 @@ Security
     - TLS (Transport Layer Security) is a cryptographic protocol designed to provide secure communication over a computer network. HTTPS (HTTP Secure) is not a separate protocol; it is simply the standard HTTP protocol layered on top of TLS. When you use HTTPS, your HTTP requests and responses are encrypted by TLS before being sent across the network.
 
 103. What three main security services does TLS provide?
-    1. ​Encryption​: A process of encrypting a message so that it can only be read by those with an authorized means of decrypting it.
-    2. ​Authentication​: A process to verify the identity of a particular party in the message exchange.
-    3. ​Integrity​: A process to detect whether a message has been interfered with or faked during transit.
+     - ​Encryption​: A process of encrypting a message so that it can only be read by those with an authorized means of decrypting it.
+    - ​Authentication​: A process to verify the identity of a particular party in the message exchange.
+    - ​Integrity​: A process to detect whether a message has been interfered with or faked during transit.
 
 105. How does TLS provide confidentiality?
     - TLS provides confidentiality through ​_encryption_​.
