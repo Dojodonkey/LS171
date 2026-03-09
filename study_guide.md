@@ -673,11 +673,11 @@ Security
     - TLS (Transport Layer Security) is a cryptographic protocol designed to provide secure communication over a computer network. HTTPS (HTTP Secure) is not a separate protocol; it is simply the standard HTTP protocol layered on top of TLS. When you use HTTPS, your HTTP requests and responses are encrypted by TLS before being sent across the network.
 
 103. What three main security services does TLS provide?
-    1.  ​Encryption​: A process of encrypting a message so that it can only be read by those with an authorized means of decrypting it.
-    2.  ​Authentication​: A process to verify the identity of a particular party in the message exchange.
-    3.  ​Integrity​: A process to detect whether a message has been interfered with or faked during transit.
+    1. ​Encryption​: A process of encrypting a message so that it can only be read by those with an authorized means of decrypting it.
+    2. ​Authentication​: A process to verify the identity of a particular party in the message exchange.
+    3. ​Integrity​: A process to detect whether a message has been interfered with or faked during transit.
 
-104. How does TLS provide confidentiality?
+105. How does TLS provide confidentiality?
     - TLS provides confidentiality through ​_encryption_​.
     - During the initial "TLS Handshake," the client and server securely agree upon a shared secret key. All subsequent communication is then encrypted using this key, making the data unreadable to anyone who might intercept it.
         - _​Asymmetric encryption_​ (public/private keys) is used at the beginning, during the TLS Handshake.
@@ -685,22 +685,22 @@ Security
             - The public key is used to encrypt the message, the private key to encrypt the message.
         - ​_Symmetric encryption​_ (a single shared secret key) is used for encrypting all the actual application data after the handshake is complete.
             - It is much faster and more efficient than asymmetric encryption, making it ideal for encrypting the bulk of the communication
-105. How does TLS provide integrity?
+106. How does TLS provide integrity?
     - TLS provides integrity through the use of a ​Message Authentication Code (MAC)​.
     - A MAC is a short piece of information generated from the message content and a secret key. It's sent along with the message.
         - The receiver can regenerate the MAC using the same process and verify that it matches the one sent by the sender.
     - If they don't match, it means the message was altered in transit.
 
-106. What is a digital certificate in the context of TLS?
+107. What is a digital certificate in the context of TLS?
     - A digital certificate is an electronic document that proves the ownership of a public key. It binds together a public key with an identity (like a domain name, e.g., www.launchschool.com) and is signed by a trusted Certificate Authority.
     - It's the primary way a client can be sure that the public key it receives actually belongs to the server it's trying to connect to.
 
-107. What role do Certificate Authorities (CAs) play in TLS?
+108. What role do Certificate Authorities (CAs) play in TLS?
     - Certificate Authorities (CAs) are trusted entities that verify the identity of organizations or individuals and issue digital certificates for them.
     - Your browser and operating system come with a pre-installed list of trusted "Root CAs." When your browser receives a certificate from a server, it checks if it was signed by a CA that it trusts, creating a "chain of trust."
     -  CAs are the foundation of the authentication process in TLS.
 
-108. Why is simply encrypting data not enough without authentication?
+109. Why is simply encrypting data not enough without authentication?
     - Encrypting data without authentication is dangerous because you might be having a perfectly secure, encrypted conversation with an attacker.
     - Without authentication, you have no way to verify ​who​ is on the other end of the connection.
         - An attacker could perform a man-in-the-middle (MitM) attack, impersonating the real server.
