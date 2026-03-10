@@ -678,13 +678,13 @@ Security
      - ​Integrity​: A process to detect whether a message has been interfered with or faked during transit.
 
 105. How does TLS provide confidentiality?
-    - TLS provides confidentiality through ​_encryption_​.
-    - During the initial "TLS Handshake," the client and server securely agree upon a shared secret key. All subsequent communication is then encrypted using this key, making the data unreadable to anyone who might intercept it.
-        - _​Asymmetric encryption_​ (public/private keys) is used at the beginning, during the TLS Handshake.
-            - It's relatively slow, but it allows the client and server to securely exchange a secret key without having ever met before.
-            - The public key is used to encrypt the message, the private key to encrypt the message.
-        - ​_Symmetric encryption​_ (a single shared secret key) is used for encrypting all the actual application data after the handshake is complete.
-            - It is much faster and more efficient than asymmetric encryption, making it ideal for encrypting the bulk of the communication
+     - TLS provides confidentiality through ​_encryption_​.
+     - During the initial "TLS Handshake," the client and server securely agree upon a shared secret key. All subsequent communication is then encrypted using this key, making the data unreadable to anyone who might intercept it.
+         - _​Asymmetric encryption_​ (public/private keys) is used at the beginning, during the TLS Handshake.
+             - It's relatively slow, but it allows the client and server to securely exchange a secret key without having ever met before.
+             - The public key is used to encrypt the message, the private key to encrypt the message.
+         - ​_Symmetric encryption​_ (a single shared secret key) is used for encrypting all the actual application data after the handshake is complete.
+             - It is much faster and more efficient than asymmetric encryption, making it ideal for encrypting the bulk of the communication
 106. How does TLS provide integrity?
      - TLS provides integrity through the use of a ​Message Authentication Code (MAC)​.
      - A MAC is a short piece of information generated from the message content and a secret key. It's sent along with the message.
