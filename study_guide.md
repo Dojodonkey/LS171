@@ -686,23 +686,23 @@ Security
         - ​_Symmetric encryption​_ (a single shared secret key) is used for encrypting all the actual application data after the handshake is complete.
             - It is much faster and more efficient than asymmetric encryption, making it ideal for encrypting the bulk of the communication
 106. How does TLS provide integrity?
-    - TLS provides integrity through the use of a ​Message Authentication Code (MAC)​.
-    - A MAC is a short piece of information generated from the message content and a secret key. It's sent along with the message.
-        - The receiver can regenerate the MAC using the same process and verify that it matches the one sent by the sender.
-    - If they don't match, it means the message was altered in transit.
+     - TLS provides integrity through the use of a ​Message Authentication Code (MAC)​.
+     - A MAC is a short piece of information generated from the message content and a secret key. It's sent along with the message.
+     - The receiver can regenerate the MAC using the same process and verify that it matches the one sent by the sender.
+     - If they don't match, it means the message was altered in transit.
 
-107. What is a digital certificate in the context of TLS?
-    - A digital certificate is an electronic document that proves the ownership of a public key. It binds together a public key with an identity (like a domain name, e.g., www.launchschool.com) and is signed by a trusted Certificate Authority.
-    - It's the primary way a client can be sure that the public key it receives actually belongs to the server it's trying to connect to.
+109. What is a digital certificate in the context of TLS?
+      - A digital certificate is an electronic document that proves the ownership of a public key. It binds together a public key with an identity (like a domain name, e.g., www.launchschool.com) and is signed by a trusted Certificate Authority.
+      - It's the primary way a client can be sure that the public key it receives actually belongs to the server it's trying to connect to.
 
-108. What role do Certificate Authorities (CAs) play in TLS?
-    - Certificate Authorities (CAs) are trusted entities that verify the identity of organizations or individuals and issue digital certificates for them.
-    - Your browser and operating system come with a pre-installed list of trusted "Root CAs." When your browser receives a certificate from a server, it checks if it was signed by a CA that it trusts, creating a "chain of trust."
-    -  CAs are the foundation of the authentication process in TLS.
+111. What role do Certificate Authorities (CAs) play in TLS?
+      - Certificate Authorities (CAs) are trusted entities that verify the identity of organizations or individuals and issue digital certificates for them.
+      - Your browser and operating system come with a pre-installed list of trusted "Root CAs." When your browser receives a certificate from a server, it checks if it was signed by a CA that it trusts, creating a "chain of trust."
+      - CAs are the foundation of the authentication process in TLS.
 
-109. Why is simply encrypting data not enough without authentication?
-    - Encrypting data without authentication is dangerous because you might be having a perfectly secure, encrypted conversation with an attacker.
-    - Without authentication, you have no way to verify ​who​ is on the other end of the connection.
-        - An attacker could perform a man-in-the-middle (MitM) attack, impersonating the real server.
-            - They would establish an encrypted connection with you, and you would send your sensitive data (like passwords or credit card numbers) to them, thinking it was safe.
-    - Authentication ensures you are encrypting your data for the correct, legitimate server.
+112. Why is simply encrypting data not enough without authentication?
+      - Encrypting data without authentication is dangerous because you might be having a perfectly secure, encrypted conversation with an attacker.
+      - Without authentication, you have no way to verify ​who​ is on the other end of the connection.
+          - An attacker could perform a man-in-the-middle (MitM) attack, impersonating the real server.
+              - They would establish an encrypted connection with you, and you would send your sensitive data (like passwords or credit card numbers) to them, thinking it was safe.
+      - Authentication ensures you are encrypting your data for the correct, legitimate server.
