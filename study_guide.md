@@ -664,13 +664,13 @@ Security
         - Even if the XSS vulnerability exists, the attacker's script won't be able to read and steal the session cookie.
 
 100. What is the purpose of the `Secure` flag on cookies?
-    - The `Secure` flag instructs the browser to only send the cookie back to the server over an encrypted HTTPS connection. It prevents the cookie from being transmitted over an insecure HTTP connection, which would make it vulnerable to eavesdropping.
+      - The `Secure` flag instructs the browser to only send the cookie back to the server over an encrypted HTTPS connection. It prevents the cookie from being transmitted over an insecure HTTP connection, which would make it vulnerable to eavesdropping.
 
 101. What is the purpose of the `HttpOnly` flag on cookies?
-    - The `HttpOnly` flag prevents a cookie from being accessed by client-side JavaScript. This is a crucial security measure to mitigate Cross-Site Scripting (XSS) attacks. If an attacker manages to inject malicious JavaScript onto a page, this flag prevents that script from stealing the user's session cookie.
+      - The `HttpOnly` flag prevents a cookie from being accessed by client-side JavaScript. This is a crucial security measure to mitigate Cross-Site Scripting (XSS) attacks. If an attacker manages to inject malicious JavaScript onto a page, this flag prevents that script from stealing the user's session cookie.
 
 102. What is TLS and how does it relate to HTTPS?
-    - TLS (Transport Layer Security) is a cryptographic protocol designed to provide secure communication over a computer network. HTTPS (HTTP Secure) is not a separate protocol; it is simply the standard HTTP protocol layered on top of TLS. When you use HTTPS, your HTTP requests and responses are encrypted by TLS before being sent across the network.
+      - TLS (Transport Layer Security) is a cryptographic protocol designed to provide secure communication over a computer network. HTTPS (HTTP Secure) is not a separate protocol; it is simply the standard HTTP protocol layered on top of TLS. When you use HTTPS, your HTTP requests and responses are encrypted by TLS before being sent across the network.
 
 103. What three main security services does TLS provide?
      - ​Encryption​: A process of encrypting a message so that it can only be read by those with an authorized means of decrypting it.
